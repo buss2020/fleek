@@ -19,7 +19,7 @@ def simple_agent_response(text):
     else:
         return f"Ты написал: {text}"
 
-@app.route(f"/{TOKEN}", methods=["POST"])
+@app.route("/webhook", methods=["POST"])
 def webhook():
     update = Update.de_json(request.get_json(force=True), bot)
     chat_id = update.message.chat.id
